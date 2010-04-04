@@ -5,8 +5,9 @@ define('DB_USER', 'user');
 define('DB_PASSWD', 'password');
 define('DB_CHARSET', 'utf8');
 define('DB_NAME', 'genitis_cms');
-define('DB_PREFIX', 'cms_');
+define('DB_PREFIX', 'gcms_');
 define('DB_DSN', DB_TYPE.':host='.DB_SERVER.';dbname='.DB_NAME);
 
-define('STATUS', 'debug');
+define('CONF_STATUS', 'debug');
+define('ERROR_404', 'error/404/');
 ?>

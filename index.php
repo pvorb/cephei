@@ -6,24 +6,37 @@
 
 $start = microtime();
 
-if (!file_exists('lib/config.inc.php'))
-	http_redirect('/setup/install.php', null, false, HTTP_REDIRECT_TEMP);
+if (!file_exists('lib/config.inc.php')) {
+	header('HTTP/1.1 307 Temporary Redirect');
+	header('Location: setup/install.php');
+	die;
+}
 
-if (isset($_GET['q']))
-	$uri = $_GET['q'];
-else
-	$uri = '/';
+// Get the requested path.
+$path = '/';
+if (isset($_GET['q'])) {
+	$path .= $_GET['q'];
+	unset($_GET['q']);
+}
+
+// If there are search arguments, save them into an string array.
+if (isset($_GET['s'])) {
+	$search = explode(',', $_GET['s']);
+	unset($_GET['s']);
+}
 
 // Load cache
-require('lib/cache.inc.php');
+require_once('lib/cache.inc.php');
 // Load configuration
-require('lib/config.inc.php');
+require_once('lib/config.inc.php');
+// Initialize db connection
+require_once('lib/db.inc.php');
 // Load data
-require('lib/db.inc.php');
+require_once('lib/data.inc.php');
 // Load template
-require('lib/template.inc.php');
+require_once('lib/template.inc.php');
 
-if ($status == 'debug') {
-	echo "\n".'<!--'."\n".(microtime() - $start).' s'."\n".'-->';
+if (CONF_STATUS == 'debug') {
+	echo "\n".'<!--'."\n".'time: '.(microtime() - $start).' s'."\n".'-->';
 }
 ?>
