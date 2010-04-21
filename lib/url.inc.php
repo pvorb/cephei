@@ -10,7 +10,7 @@ function get_hierarchy($q) {
 	if ($q[strlen($q) - 1] == '/')
 		$q = substr($q, 0, -1);
 	$parent = dirname($q);
-	$parent = $parent == '.' ? '' : $parent;
+	$parent = ($parent == '.') ? '' : $parent;
 	$item = basename($q);
 	return array($parent, $item);
 }

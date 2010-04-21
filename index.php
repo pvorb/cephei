@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * This is the main entry point of the CMS.
  * @author Paul Vorbach <p.vorbach@genitis.org>
@@ -21,7 +21,7 @@ if (isset($_GET['q'])) {
 
 // If there are search arguments, save them into an string array.
 if (isset($_GET['s'])) {
-	$search = explode(',', $_GET['s']);
+	$search = explode('+', $_GET['s']);
 	unset($_GET['s']);
 }
 

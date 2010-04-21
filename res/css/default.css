@@ -29,7 +29,7 @@
 	code .rtn { color: #900; }
 	code .doc { color: #06c; }
 	code .kwd, code .rtn, code .doc-kwd, strong, b { font-weight: 700; }
-	input.button:hover, button { cursor: hand; }
+	input.button:hover, button { cursor: pointer; }
 }
 
 @media print {
