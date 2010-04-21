@@ -1,0 +1,99 @@
+@media all {
+	img,abbr { border: 0; }
+	q { quotes: "" "" "" ""; }
+}
+
+@media screen, projection, print, handheld {
+	* { font-weight: 400; }
+	html { font: 100%/ 1.5 serif; }
+	h1,h2,h3,h4 { font-family: serif; }
+	h5,h6 { font-family: sans-serif; font-weight: 700; }
+	h1 { margin: 0 0 .1em; }
+	h2,h3,h4,h5,h6 { margin: .6em 0 .3em; }
+	p { margin: .5em 0 0; }
+	blockquote { background: url(../img/quote.gif) top left no-repeat; font-style: italic; margin: 1em; padding: 0 2em; }
+	blockquote cite { font-style: normal; }
+	blockquote cite:before { content: "~ "; }
+	ul { list-style-type: square; }
+	table { margin: .5em 0; }
+	dt { background: #eef; font-weight: 700; margin: .3em 0 0; padding: .1em .3em; }
+	th { border-bottom: 1px solid #000; font-family: serif; font-weight: 700; }
+	th, td { vertical-align: top; padding-right: .5em; padding-bottom: .5em; }
+	caption { font: 1.5em/ 1 serif; font-style: italic; margin-bottom: .4em; text-decoration: underline; }
+	code, kbd, pre, var { font-family: monospace; }
+	pre { overflow: auto; }
+	code .kwd { color: #808; }
+	code .str { color: red; }
+	code .fld { color: #00c; }
+	code .ilc { color: #181; }
+	code .rtn { color: #900; }
+	code .doc { color: #06c; }
+	code .kwd, code .rtn, code .doc-kwd, strong, b { font-weight: 700; }
+	input.button:hover, button { cursor: hand; }
+}
+
+@media print {
+	#container, #about { text-align: justify; }
+}
+
+@media print, handheld {
+	body { background: #fff; margin: .5em; }
+	#access, #intro,#related { display: none; }
+	#container, #index,#container .info,#about { margin: 0; padding: 0; }
+	#container, #about { text-align: justify; }
+	table, blockquote { text-align: left; }
+	#about, #container .info,#container .nav { border-top: 1px solid #ddd; margin: .5em 0 0; padding: .5em 0 0; }
+	a { color: #000; text-decoration: underline; }
+}
+
+@media handheld, projection, screen {
+	body { text-align: center; background: #eee; }
+	body, #title, #intro .nav, pre { margin: 0; padding: 0; }
+	#intro, #container, #about { padding: 1em; }
+	#intro { background: #000 url(../img/g.gif) left center no-repeat; color: #fff; height: 1.65em; }
+	#intro > * { font-size: 1.1em; }
+	#title, #intro .nav, #intro .nav li { float: left; list-style: none; }
+	#title { margin-right: 3em; }
+	#title span:after { content: ":"; }
+	#intro .access { float: none; height: 0; visibility: hidden; }
+	#intro .nav li { margin: 0 1em 0 0; }
+	#intro .nav li.active { background-color: #024; padding: 0 .4em; }
+	#intro .extra li { margin: 0 0 0 1em; }
+	#container { background: #fff; border: 1px solid #ccc; }
+	#search input.field { background: #455; color: #cdf; border-color: #9aa; border-width: 1px; margin: 0 1em 0 0; padding: 0 .1em; }
+	#about p { margin: 0; }
+	#intro a:link { color: #38f; }
+	#container a:link, #about a:link { color: #048; }
+	#intro a:visited { color: #36d; }
+	#container a:visited,#about a:visited { color: #45a; }
+	a:hover { text-decoration: none; }
+	a:active { color: #c33 !important; }
+	abbr, acronym { border-bottom: 1px dotted #888; cursor: help; }
+	.sh:before { content: "$ "; }
+	.sh { background:#000; color:#fff; display:block; padding:0.4em; }
+}
+
+@media screen, projection {
+	#intro .extra, #search, #container .info, #container .nav, #container .comment { float: right; }
+	#intro, #container, #about { min-width: 800px; overflow: hidden; text-align: left; }
+	#container, #about { max-width: 60em; width: 70%; margin: 0 auto; }
+	#container { margin: 1em auto; }
+	#content { width: 65%; }
+	#container .info,#container .nav,#container .comment { width: 32%; }
+	#container .teaser { margin-right: 1em; width: 46%; }
+	#teasers, #entries, #related { overflow: hidden; }
+	table.stat { border-collapse: collapse; }
+	table.stat td,table.stat th,table.eval td,table.eval th { padding: .5em; }
+	col.em, tr.em th, tr.em td, dt, table.stat tr:hover td, #about { background: #eef; }
+	col.em { border-right: 1px solid #000; }
+	table.eval .true { background: #afa; }
+	table.eval .false { background: #fdd; }
+	#about { border: 1px solid #aaa; }
+	.fig,.video { border: 1px solid #ccc; margin-top: .5em; border-width: 1px 0; padding: .5em 0; }
+	.fig img { vertical-align: middle; }
+	.video .caption { font-style: italic; margin: .3em 0 0; }
+	.fig .caption:before { content: "Bild: "; }
+	.video .caption:before { content: "Video: "; }
+	img.inl { vertical-align: text-top; }
+	#content, #container .teaser, img.teaser, img.impression { float: left; }
+}
