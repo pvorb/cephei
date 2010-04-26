@@ -1,9 +1,5 @@
 <?php
-/**
- * Gets parent and item out of an query string.
- * @param string $q query string
- * @return array parent and item
- */
+// Gets parent and item out of a query string. (Unused)
 function get_hierarchy($q) {
 	if ($q[0] == '/')
 		$q = substr($q, 1);
@@ -13,5 +9,10 @@ function get_hierarchy($q) {
 	$parent = ($parent == '.') ? '' : $parent;
 	$item = basename($q);
 	return array($parent, $item);
+}
+
+// Sanitization
+function sanitize_url($q) {
+    return str_replace("\n", '', strip_tags($q));
 }
 ?>
