@@ -1,7 +1,9 @@
 <?php
 /**
- * This is the main entry point of the CMS.
+ * This is the root element of the CMS. Everything starts here.
+ * 
  * @author Paul Vorbach <p.vorbach@genitis.org>
+ * @license http://opensource.org/licenses/mit-license.php MIT License
  */
 
 $start = microtime();
@@ -34,7 +36,7 @@ require_once('lib/db.inc.php');
 // Load data
 require_once('lib/data.inc.php');
 // Load template
-require_once('lib/template.inc.php');
+require_once('lib/tpl.inc.php');
 
 if (CONF_STATUS == 'debug') {
 	echo "\n".'<!--'."\n".'time: '.(microtime() - $start).' s'."\n".'-->';
