@@ -1,4 +1,13 @@
 <?php
+/**
+ * This is a dummy configuration file that may be used by renaming it to
+ * config.inc.php.
+ *
+ * @author Paul Vorbach <p.vorbach@genitis.org>
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @package org.genitis.cms
+ */
+
 define('DB_TYPE', 'mysql');
 define('DB_SERVER', 'localhost');
 define('DB_USER', 'user');

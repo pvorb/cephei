@@ -1,8 +1,8 @@
 <?php
-// admin.inc.php
-
-// trim the redundant part
-$path = substr($path, strlen($conf['site_path_admin']) + 1);
-include 'admin/index.static.php';
-die;
+/**
+ * This file manages the administration.
+ *
+ * @author Paul Vorbach <p.vorbach@genitis.org>
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ */
 ?>

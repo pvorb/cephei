@@ -1,5 +1,12 @@
 <?php
-require('vendor/smarty/Smarty.class.php');
+/**
+ * This file includes the templates.
+ *
+ * @author Paul Vorbach <p.vorbach@genitis.org>
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @package org.genitis.cms
+ */
+require(DIR_LIB.'vendor/smarty/Smarty.class.php');
 
 $tpl = new Smarty;
 $tpl->caching = 0;
@@ -12,5 +19,5 @@ $tpl->assign('created', $row['created']);
 $tpl->assign('keywords', $row['keywords']);
 $tpl->assign('description', $row['description']);
 
-$tpl->display('../lib/tpl/default.tpl');
+$tpl->display(DIR_LIB.'/tpl/default.tpl');
 ?>

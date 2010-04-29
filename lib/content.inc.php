@@ -1,9 +1,17 @@
 <?php
+/**
+ * This file catches the content.
+ *
+ * @author Paul Vorbach <p.vorbach@genitis.org>
+ * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @package org.genitis.cms
+ */
+
 // Try to find item with $path that was in $_GET['q'].
 $res = $db->query('SELECT * FROM content_item WHERE path = "'.$path.'"');
 $row = $res->fetch(PDO::FETCH_ASSOC);
 if ($row == false) {
-	// Try to find out, if there have been older versions of this item at $path.
+	// Try to find out if there have been older versions of this item at $path.
 	$res = $db->query('SELECT * FROM path_redirect WHERE source_path = "'.$path.'"');
 	$row = $res->fetch(PDO::FETCH_ASSOC);
 	if ($row != false) {
@@ -14,16 +22,14 @@ if ($row == false) {
 			// If it exists, redirect to the updated URL.
 			header('HTTP/1.1 301 Moved Permanently');
 			header('Location: '.$row['path']);
-			die;
+			redirect(301, $row['path']);
 		} else {
-			header('HTTP/1.1 404 Not Found');
-			header('Location: '.ERROR_404.'?s='.trim(strtr($path, array('/' => '+', '%20' => '+')), '+'));
-			die;
+			// Else redirect to an 404 error and search for possible alternatives.
+			redirect(404, ERROR_404, $path);
 		}
 	} else {
-		header('HTTP/1.1 404 Not Found');
-		header('Location: '.ERROR_404.'?s='.trim(strtr($path, array('/' => '+', '%20' => '+')), '+'));
-		die;
+		// Redirect to an 404 error and search for possible alternatives.
+		redirect(404, ERROR_404, $path);
 	}
 }
 ?>
