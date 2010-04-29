@@ -9,6 +9,7 @@
  */
 define('DIR_LIB', dirname(__FILE__).'/');
 
+// Here are the definitions of the database connection
 define('DB_TYPE', 'mysql');
 define('DB_SERVER', 'localhost');
 define('DB_USER', 'user');
@@ -16,8 +17,8 @@ define('DB_PASSWD', 'password');
 define('DB_CHARSET', 'utf8');
 define('DB_NAME', 'genitis_cms');
 define('DB_PREFIX', 'gcms_');
-define('DB_DSN', DB_TYPE.':host='.DB_SERVER.';dbname='.DB_NAME);
 
-define('CONF_STATUS', 'debug');
-define('ERROR_404', 'error/404/');
+// Here are some definitions about the behaviour of the website.
+define('CONF_STATUS', 'debug'); // status: either 'release' or 'debug'
+define('ERROR_404', 'error/404/'); // 404 error page: the url to the error page
 ?>
