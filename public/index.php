@@ -8,7 +8,7 @@
 
 $start = microtime();
 
-if (!file_exists('lib/config.inc.php')) {
+if (!file_exists('../lib/config.inc.php')) {
 	header('HTTP/1.1 307 Temporary Redirect');
 	header('Location: setup/install.php');
 	die;
@@ -28,15 +28,15 @@ if (isset($_GET['s'])) {
 }
 
 // Load cache
-require_once('lib/cache.inc.php');
+require_once('../lib/cache.inc.php');
 // Load configuration
-require_once('lib/config.inc.php');
+require_once('../lib/config.inc.php');
 // Initialize db connection
-require_once('lib/db.inc.php');
+require_once('../lib/db.inc.php');
 // Load data
-require_once('lib/data.inc.php');
+require_once('../lib/data.inc.php');
 // Load template
-require_once('lib/tpl.inc.php');
+require_once('../lib/tpl.inc.php');
 
 if (CONF_STATUS == 'debug') {
 	echo "\n".'<!--'."\n".'time: '.(microtime() - $start).' s'."\n".'-->';

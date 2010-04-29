@@ -12,5 +12,5 @@ $tpl->assign('created', $row['created']);
 $tpl->assign('keywords', $row['keywords']);
 $tpl->assign('description', $row['description']);
 
-$tpl->display('lib/tpl/default.tpl')
+$tpl->display('../lib/tpl/default.tpl');
 ?>
