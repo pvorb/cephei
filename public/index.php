@@ -2,7 +2,7 @@
 /**
  * This is the root element of the CMS. Everything starts here.
  * 
- * @author Paul Vorbach <p.vorbach@genitis.org>
+ * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
  */
 

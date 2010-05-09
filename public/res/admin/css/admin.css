@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+@media all {
+	html { font: 100%/1.2 Candara, Sans, sans-serif;  min-width: 720px; text-align: center; }
+	body { min-width: 760px; }
+	#title, body > .nav, body > .main, th { text-align: left; }
+	body > .main { margin: 0 auto; width: 90%;}
+	#auth, #sf { text-align: right; }
+	body, #branch { margin: 0; padding: 0; }
+	#title, #branch, #branch li { float: left; }
+	#branch { list-style: none; }
+	#auth .opt { display: inline; }
+	#auth .opt:before { content: "("; }
+	#auth .opt:after { content: ")"; }
+
+	body > .main, body > .main > * { overflow: hidden; }
+
+	#oview > .item { float: left; width: 50%; }
+	#oview > .item > * { padding-right: 1%; }
+	#oview >  .item.act > table { width: 100%; }
+
+	#title, #branch, #auth, #sf { background: #000; color: #fff; font-size: 1.1em; padding: .2em .3em; }
+	#branch a, auth a { text-decoration: none; }
+	#branch a { background: #611; color: #fff; margin-right: .2em; padding: 0 .2em; }
+	#branch a:hover, #branch a:focus { background: #a22; }
+	#branch li.active a { background: #c11; }
+	#auth a { color: #abf; }
+	#auth a:hover, #auth a:focus { color: #77f; }
+
+	h1, h2, h3, h4, h5, h6 { font-weight: normal }
+	#auth .opt, #about { font-size: .8em; }
+
+	body > .main .item h2, body > form legend { margin: 0 0 .5em; }
+	body > form .sec { float: left; }
+	body > form .sec-1 { width: 60%; }
+	body > form .sec-2 { width: 40%; }
+	body > form .sec-1 fieldset { margin-right: .5em; }
+	body > form .sec-2 fieldset { margin-left: .5em; }
+	body > form fieldset { border: 1px solid #000; padding: .5em; margin-bottom: .5em; }
+	body > form legend { font-size: 1.5em; }
+	input, textarea, select { font: 100%/1.2 Candara, Sans, sans-serif; padding: .2em .2em; }
+	body > form input[type=text] { width: 75%; }
+	body > form input[type=text].short { width: 50%; }
+	body > form input.date { width: 8em; }
+	body > form textarea { width: 98% }
+	body > form label { font-size: 1.1em; vertical-align: baseline; }
+	body > form label.text:after, body > form label.sel:after { content: ":"; }
+
+	body > form .buttons { padding-left: .5em; width: 100%; }
+	input.save { color: #060; font-size: 1.2em; }
+	input.cancel { color: #a00; font-size: .9em; }
+
+	#login { width: 30em; }
+	#login label { float: left; text-align: right;  width: 3em; margin-right: .5em }
+	#login input { width: 20em; }
+
+	input:focus, select:focus, textarea:focus { outline: 2px solid #a00; }
+	a, label, select, input[type=checkbox], input[type=radio], input[type=button], input[type=submit] { cursor: pointer; }
+	fieldset.hidden legend, fieldset.hidden legend a { display: inline-block; }
+	fieldset.hidden * { display: none; }
+}

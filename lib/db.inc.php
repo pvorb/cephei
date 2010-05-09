@@ -2,7 +2,7 @@
 /**
  * This file establishes the database connection.
  *
- * @author Paul Vorbach <p.vorbach@genitis.org>
+ * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @package org.genitis.cms
  */
