@@ -10,12 +10,25 @@ $start = microtime();
 
 require '../lib/functions.inc.php';
 
-//
-if (!file_exists('../lib/config.inc.php')) {
-	header('HTTP/1.1 307 Temporary Redirect');
-	header('Location: setup/install.php');
-	die;
+$config_file = '../lib/config.inc.php';
+
+// Check if the config.inc.php file is available
+// If there is the public/setup/install.php you will be redirected to it.
+// Otherwise terminate the script and throw an error.
+if (!file_exists($config_file)) {
+	if (file_exists('setup/install.php')) {
+		header('HTTP/1.1 307 Temporary Redirect');
+		header('Location: setup/install.php');
+		die;
+	} else {
+		die('The file "lib/config.inc.php" is missing.');
+		// Maybe there will be a central error manager soon.
+	}
 }
+
+// Load configuration file
+require_once($config_file);
+unset($config_file);
 
 // Get the requested path.
 $path = '/';
@@ -30,8 +43,6 @@ if (isset($_GET['s'])) {
 	unset($_GET['s']);
 }
 
-// Load configuration
-require_once('../lib/config.inc.php');
 // Load cache
 require_once(DIR_LIB.'cache.inc.php');
 // Initialize db connection
