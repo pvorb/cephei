@@ -3,11 +3,16 @@
  * This is a dummy configuration file that may be used by renaming it to
  * config.inc.php.
  *
+ * Usually at least the DIR_ constants have to be redefined.
+ *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @package org.genitis.cms
  */
+
+// Here are some definitions for often used directory paths
 define('DIR_LIB', dirname(__FILE__).'/');
+define('DIR_MOD', DIR_LIB.'mod/');
 
 // Here are the definitions of the database connection
 define('DB_TYPE', 'mysql');

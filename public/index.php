@@ -45,6 +45,8 @@ if (isset($_GET['s'])) {
 
 // Load cache
 require_once(DIR_LIB.'cache.inc.php');
+// Load modules
+require_once(DIR_LIB.'modules.inc.php');
 // Initialize db connection
 require_once(DIR_LIB.'db.inc.php');
 // Load data
