@@ -27,4 +27,13 @@ function list_modules() {
 	closedir($d);
 	return $m;
 }
+
+/**
+ * Loads all modules in 'lib/mod'.
+ */
+function load_modules() {
+	$mod = list_modules();
+	foreach ($mod as $m)
+		require_once DIR_MOD.$m.'.inc.php';
+}
 ?>
