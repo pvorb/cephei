@@ -7,6 +7,8 @@
  * @package org.genitis.cms.mod.css
  */
 
+require_once 'mod.inc.php';
+
 class css extends mod {
 	static $name = 'CSS Management Module';
 	static $author = 'Paul Vorbach';

@@ -7,7 +7,7 @@
  * @package org.genitis.cms
  */
 
-require_once 'mod.php';
+require_once 'mod.inc.php';
 
 class js extends mod {
 	static $name = 'JavaScript Management Module';

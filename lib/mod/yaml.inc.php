@@ -1,7 +1,8 @@
 <?php
 /**
  * YAML (1.2) parser module.
- * @see http://yaml.org/spec/1.2/spec.pdf
+ * 
+ * @see http://www.php.net/manual/en/book.yaml.php
  *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
