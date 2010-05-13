@@ -1,16 +1,19 @@
 <?php
 /**
- * DESCRIPTION
+ * JSON parser module.
  *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
- * @package org.genitis.cms
+ * @package org.genitis.cms.mod.json
  */
 
-$mod_name = 'YAML Parser Module';
-$mod_author = 'Paul Vorbach';
-$mod_email = 'p.vorbach@gmail.com';
-$mod_version = '0.1.0';
+require_once 'mod.php';
 
-
+class json extends mod {
+	static $name = 'JSON Parser Module';
+	static $author = 'Paul Vorbach';
+	static $email = 'p.vorbach@gmail.com';
+	static $version = '0.1.0';
+	static $type = 'extra';
+}
 ?>

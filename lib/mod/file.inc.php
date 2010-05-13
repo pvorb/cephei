@@ -7,9 +7,13 @@
  * @package org.genitis.cms
  */
 
-$mod_name = 'File Management Module';
-$mod_author = 'Paul Vorbach';
-$mod_email = 'p.vorbach@gmail.com';
-$mod_version = '0.1.0';
+require_once 'mod.inc.php';
 
+class file extends mod {
+	static $name = 'File Management Module';
+	static $author = 'Paul Vorbach';
+	static $email = 'p.vorbach@gmail.com';
+	static $version = '0.1.0';
+	static $package = 'core';
+}
 ?>

@@ -9,6 +9,8 @@
 
 /**
  * Lists all modules in 'lib/mod'.
+ *
+ * @return array of all modules
  */
 function list_modules() {
 	$m = array();

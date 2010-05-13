@@ -8,16 +8,33 @@
  * @package org.genitis.cms
  */
 
-$mod_name = 'YAML Parser Module';
-$mod_author = 'Paul Vorbach';
-$mod_email = 'p.vorbach@gmail.com';
-$mod_version = '0.1.0';
+require_once 'mod.inc.php';
 
-function parse_yaml_file($file) {
-	if (!file_exists($file)) {
-		throw new Exception('File does not exist.');
-	} else {
-		// TODO YAML parsing goes here. See http://yaml.org/spec/1.2/spec.pdf.
+class yaml extends mod {
+	static $name = 'YAML Parser Module';
+	static $author = 'Paul Vorbach';
+	static $email = 'p.vorbach@gmail.com';
+	static $version = '0.1.0';
+	static $type = 'core';
+
+	const DIR_TPL = 'tpl';
+
+	/**
+	 * Parses a YAML file.
+	 * @param string $file Path to the file that should be parsed
+	 *
+	 * @todo Implement parsing.
+	 */
+	static function parse_yaml_file($file) {
+		if (!file_exists($file)) {
+			throw new Exception('File does not exist.');
+		} else {
+			$f = fopen($file, 'r');
+			while (!feof($f)) {
+				$buff = fgets($f, 4096);
+			}
+			fclose($f);
+		}
 	}
 }
 ?>

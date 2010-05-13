@@ -1,23 +1,22 @@
 <?php
 /**
- * This file includes the templates.
+ * Template management module.
  *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @package org.genitis.cms
  */
-require(DIR_LIB.'vendor/smarty/Smarty.class.php');
 
-$tpl = new Smarty;
-$tpl->caching = 0;
+require_once 'mod.inc.php';
+require_once DIR_LIB.'vendor/smarty/Smarty.class.php';
 
-$tpl->assign('base', str_repeat('../', $row['level']));
-$tpl->assign('title', $row['title']);
-$tpl->assign('title_long', $row['title_long']);
-$tpl->assign('content', $row['content']);
-$tpl->assign('created', $row['created']);
-$tpl->assign('keywords', $row['keywords']);
-$tpl->assign('description', $row['description']);
+class tpl extends mod {
+	static $name = 'Template Management Module';
+	static $author = 'Paul Vorbach';
+	static $email = 'p.vorbach@gmail.com';
+	static $version = '0.1.0';
+	static $type = 'core';
 
-$tpl->display(DIR_LIB.'/tpl/default.tpl');
+	const DIR_TPL = 'tpl';
+}
 ?>

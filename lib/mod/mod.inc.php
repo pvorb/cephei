@@ -1,27 +1,23 @@
 <?php
 /**
- * Interface for modules.
+ * Base class for modules.
  *
- * A module must define the following fields:
+ * A module must override the following properties:
  *  - $name The name of the module
  *  - $author The author's name
  *  - $email The author's email adress
- *  - $version The version of the module. It should match the pattern: x.y.z
- *  - $package The package of the module. One of the following: 'core', 'common' or 'custom'.
+ *  - $version The version of the module. It should match the pattern 'x.y.z'.
+ *  - $type The package of the module. One of the following: 'core', 'extra',
+ *     'common' or 'custom'.
  *
  * You may also define:
- *  - $url A link to the Webpage(s) of the module
- *
- * @author Paul Vorbach <p.vorbach@gmail.com>
- * @license http://opensource.org/licenses/mit-license.php MIT License
- * @package org.genitis.cms.mod
+ *  - $url A link to the Webpage of the module
  */
-
-interface mod {
-	static $name;
-	static $author;
-	static $email;
-	static $version;
-	static $package;
+class mod {
+	static $name = 'Module Name';
+	static $author = 'Author\'s name';
+	static $email = 'author@example.com';
+	static $version = '0.1.0';
+	static $type = 'custom';
 }
 ?>
