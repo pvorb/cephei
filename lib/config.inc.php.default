@@ -13,6 +13,7 @@
 // Here are some definitions for often used directory paths
 define('DIR_LIB', dirname(__FILE__).'/');
 define('DIR_MOD', DIR_LIB.'mod/');
+define('DIR_RES', DIR_PUB.'res/');
 
 // Here are the definitions of the database connection
 define('DB_TYPE', 'mysql');

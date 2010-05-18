@@ -18,7 +18,7 @@ function list_modules() {
 	$d = opendir(DIR_MOD);
 	if ($d)
 		while (($f = readdir($d)) !== false) {
-			if ($f != '.' && $f != '..' && $f != 'mod.inc.php')
+			if ($f != '.' && $f != '..' && $f != 'mod.def.php')
 				$m[] = substr($f, 0, -8);
 		}
 	else
@@ -34,6 +34,8 @@ function list_modules() {
 function load_modules() {
 	$mod = list_modules();
 	foreach ($mod as $m)
-		require_once DIR_MOD.$m.'.inc.php';
+		require_once DIR_MOD.$m.'.mod.php';
 }
+
+load_modules(); // load all modules
 ?>

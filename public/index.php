@@ -8,11 +8,12 @@
 
 $start = microtime();
 
+define('DIR_PUB', dirname(__FILE__)); // Defines the public path
 require '../lib/functions.inc.php';
 
 $config_file = '../lib/config.inc.php';
 
-// Check if the config.inc.php file is available
+// Checks if the config.inc.php file is available.
 // If there is the public/setup/install.php you will be redirected to it.
 // Otherwise terminate the script and throw an error.
 if (!file_exists($config_file)) {
@@ -51,8 +52,6 @@ require_once(DIR_LIB.'modules.inc.php');
 require_once(DIR_LIB.'db.inc.php');
 // Load data
 require_once(DIR_LIB.'data.inc.php');
-// Load template
-require_once(DIR_LIB.'mod/tpl.inc.php');
 
 // Show debug information.
 if (CONF_STATUS == 'debug') {

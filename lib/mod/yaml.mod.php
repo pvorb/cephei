@@ -9,7 +9,7 @@
  * @package org.genitis.cms
  */
 
-require_once 'mod.inc.php';
+require_once 'mod.def.php';
 
 class yaml extends mod {
 	static $name = 'YAML Parser Module';
@@ -31,10 +31,14 @@ class yaml extends mod {
 			throw new Exception('File does not exist.');
 		} else {
 			$f = fopen($file, 'r');
-			while (!feof($f)) {
-				$buff = fgets($f, 4096);
+			if ($f) {
+				while (!feof($f)) {
+					$buff = fgets($f, 4096);
+				}
+				fclose($f);
+			} else {
+				throw new Exception('Unable to open file at "'.$file.'".');
 			}
-			fclose($f);
 		}
 	}
 }
