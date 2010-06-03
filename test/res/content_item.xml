@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+	<table name="content_item">
+		<column>id</column>
+		<column>path</column>
+		<column>alias</column>
+		<column>level</column>
+		<column>title</column>
+		<column>title_long</column>
+		<column>content</column>
+		<column>summary</column>
+		<column>created</column>
+		<column>created_by</column>
+		<column>modified</column>
+		<column>authors</column>
+		<column>keywords</column>
+		<column>description</column>
+		<column>theme_id</column>
+		<column>scripts</column>
+		<column>menu_index</column>
+		<column>menu_title</column>
+		<column>public</column>
+		<column>searchable</column>
+		<column>cacheable</column>
+		<column>comments_enabled</column>
+		<column>comments_number</column>
+		<row>
+			<value>1</value>
+			<value>/</value>
+			<value></value>
+			<value>Home</value>
+			<value>Welcome</value>
+			<column><![CDATA[<p>This is the root entry of this Website</p>]]></column>
+			<column>Summary of the entry</column>
+			<column>2010-06-03 17:58:55</column>
+			<column>1</column>
+			<column>modified</column>
+			<column>authors</column>
+			<column>keywords</column>
+			<column>description</column>
+			<column>theme_id</column>
+			<column>scripts</column>
+			<column>menu_index</column>
+			<column>menu_title</column>
+			<column>public</column>
+			<column>searchable</column>
+			<column>cacheable</column>
+			<column>comments_enabled</column>
+			<column>comments_number</column>
+		</row>
+		<row>
+			<value>2</value>
+			<value>My Second Post</value>
+			<value>2008-12-04 15:35:25</value>
+			<value>This is my second post</value>
+			<null />
+		</row>
+		<row>
+			<value>3</value>
+			<value>My Third Post</value>
+			<value>2008-12-09 03:17:05</value>
+			<value>This is my third post</value>
+			<value>3</value>
+		</row>
+	</table>
+	<table name="post_comment">
+		<column>post_comment_id</column>
+		<column>post_id</column>
+		<column>author</column>
+		<column>content</column>
+		<column>url</column>
+		<row>
+			<value>1</value>
+			<value>2</value>
+			<value>Tom</value>
+			<value>While the topic seemed interesting the content was lacking.</value>
+			<null />
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>Frank</value>
+			<value>That is because this is simply an example.</value>
+			<value>http://phpun.it</value>
+		</row>
+	</table>
+	<table name="current_visitors">
+		<column>current_visitors_id</column>
+		<column>ip</column>
+	</table>
+</dataset>
