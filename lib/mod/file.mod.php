@@ -26,20 +26,23 @@ class file extends mod {
 	 * @todo test the method
 	 */
 	static function get_file_tree($root = DIR_RES) {
-		$t = array();
+		$t = array(); // file tree array
 
-		$d = opendir(DIR_MOD);
-		if ($d)
-			while (($f = readdir($d)) !== false) {
-				if ($f != '.' && $f != '..')
-					if (is_dir($f)) {
-						$t[] = self::get_file_tree($root.$f);
+		$d = opendir($root);
+		if ($d) {
+			while (($f = readdir($d)) !== FALSE) {
+				if ($f != '.' && $f != '..') {
+					$path = $root.$f.'/';
+					if (is_dir($path)) {
+						$t[basename($path)] = self::get_file_tree($path);
 					} else {
-						// TODO something
+						$t[] = basename($path); // name of the file
 					}
+				}
 			}
-		else
-			$t = false;
+		} else {
+			$t = FALSE;
+		}
 
 		closedir($d);
 		return $t;

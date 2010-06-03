@@ -13,11 +13,12 @@
 // Here are some definitions for often used directory paths
 define('DIR_LIB', dirname(__FILE__).'/');
 define('DIR_MOD', DIR_LIB.'mod/');
+define('DIR_PUB', substr(DIR_LIB, 0, strlen(DIR_LIB) - 4).'public/');
 define('DIR_RES', DIR_PUB.'res/');
 
 // Here are the definitions of the database connection
 define('DB_TYPE', 'mysql');
-define('DB_SERVER', 'localhost');
+define('DB_HOST', 'localhost');
 define('DB_USER', 'user');
 define('DB_PASSWD', 'password');
 define('DB_CHARSET', 'utf8');

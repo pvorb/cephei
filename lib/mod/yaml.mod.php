@@ -16,7 +16,7 @@ class yaml extends mod {
 	static $author = 'Paul Vorbach';
 	static $email = 'p.vorbach@gmail.com';
 	static $version = '0.1.0';
-	static $type = 'core';
+	static $type = 'extra';
 
 	const DIR_TPL = 'tpl';
 

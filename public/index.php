@@ -6,9 +6,8 @@
  * @license http://opensource.org/licenses/mit-license.php MIT License
  */
 
-$start = microtime();
+$start = microtime(TRUE);
 
-define('DIR_PUB', dirname(__FILE__)); // Defines the public path
 require '../lib/functions.inc.php';
 
 $config_file = '../lib/config.inc.php';
@@ -55,6 +54,6 @@ require_once(DIR_LIB.'data.inc.php');
 
 // Show debug information.
 if (CONF_STATUS == 'debug') {
-	echo "\n".'<!--'."\n".'time: '.(microtime() - $start).' s'."\n".'-->';
+	echo "\n".'<!--'."\n".'time: '.(microtime(TRUE) - $start).' s'."\n".'-->';
 }
 ?>
