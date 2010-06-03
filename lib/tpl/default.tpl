@@ -1,8 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang}" lang="{$lang}">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>{$title} | {$site_name}</title>
+		<title>{$title} › {$site_name}</title>
 		<link rel="icon" href="{$base}favicon.ico" />
 		<link type="text/css" rel="stylesheet" charset="utf-8" href="{$base}res/css/default.css" media="all" />
 		<meta name="author" content="{$author}" />
