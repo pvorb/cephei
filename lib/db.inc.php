@@ -10,4 +10,3 @@
 define(DB_DSN, DB_TYPE.':dbname='.DB_NAME.':host='.DB_HOST);
 
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWD);
-?>

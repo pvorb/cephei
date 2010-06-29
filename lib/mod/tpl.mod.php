@@ -19,4 +19,3 @@ class tpl extends mod {
 
 	const DIR_TPL = 'tpl';
 }
-?>

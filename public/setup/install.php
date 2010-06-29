@@ -3,7 +3,7 @@
  * The installer will be found here when its time has come. The whole
  * installation process has to be included in this folder, so that it may be
  * easily removed by the CMS itself or by the admin simply removing the folder.
- * 
+ *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @package org.genitis.cms

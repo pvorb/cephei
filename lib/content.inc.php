@@ -32,4 +32,3 @@ if ($row == false) {
 		redirect(404, ERROR_404, $path);
 	}
 }
-?>

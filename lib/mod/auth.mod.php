@@ -21,7 +21,7 @@ class auth extends mod {
 
 	/**
 	 * Fallback for authorize_sec().
-	 * 
+	 *
 	 * @param string $usr
 	 *   username or email adress
 	 * @param string $pwd
@@ -62,4 +62,3 @@ class auth extends mod {
 			TRUE : FALSE;
 	}
 }
-?>

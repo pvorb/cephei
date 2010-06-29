@@ -44,11 +44,10 @@ function redirect($type, $location, $search = null) {
 
 /**
  * Sanitizes a url string by using strip_tags() and stripping newlines.
- * 
+ *
  * @param string $q url
  * @return string sanitized url string
  */
 function sanitize_url($q) {
     return str_replace("\n", '', strip_tags($q));
 }
-?>

@@ -22,4 +22,3 @@ elseif (strpos($path, $conf['site_path_img']) === 1)
 	include 'mod/img.inc.php';
 else
 	include 'content.inc.php';
-?>

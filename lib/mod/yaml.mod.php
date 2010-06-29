@@ -1,7 +1,7 @@
 <?php
 /**
  * YAML (1.2) parser module.
- * 
+ *
  * @see http://www.php.net/manual/en/book.yaml.php
  *
  * @author Paul Vorbach <p.vorbach@gmail.com>
@@ -42,4 +42,3 @@ class yaml extends mod {
 		}
 	}
 }
-?>

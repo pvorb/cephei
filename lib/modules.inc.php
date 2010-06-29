@@ -38,4 +38,3 @@ function load_modules() {
 }
 
 load_modules(); // load all modules
-?>

@@ -28,4 +28,3 @@ define('DB_PREFIX', '');
 // Here are some definitions about the behaviour of the website.
 define('CONF_STATUS', 'debug'); // status: either 'release' or 'debug'
 define('ERROR_404', 'error/404/'); // 404 error page: the url to the error page
-?>

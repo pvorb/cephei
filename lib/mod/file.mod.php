@@ -48,4 +48,3 @@ class file extends mod {
 		return $t;
 	}
 }
-?>

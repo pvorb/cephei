@@ -1,7 +1,7 @@
 <?php
 /**
  * This is the root element of the CMS. Everything starts here.
- * 
+ *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
  */
@@ -56,4 +56,3 @@ require_once(DIR_LIB.'data.inc.php');
 if (CONF_STATUS == 'debug') {
 	echo "\n".'<!--'."\n".'time: '.(microtime(TRUE) - $start).' s'."\n".'-->';
 }
-?>
