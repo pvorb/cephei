@@ -1,6 +1,7 @@
 <?php
 /**
- * This file catches the
+ * This file decides, which type of data is requested and includes the
+ * necessary handler file.
  *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
@@ -13,12 +14,12 @@ foreach ($db->query('SELECT name, value FROM conf', PDO::FETCH_NUM) as $row) {
 }
 
 if (strpos($path, $conf['site_path_admin']) === 1)
-	include 'admin.inc.php';
-elseif ((strpos($path, $conf['site_path_css']) === 1) || (strrpos($path, '.css') === 1))
-	include 'mod/css.inc.php';
-elseif (strpos($path, $conf['site_path_js']) === 1 || (strrpos($path, '.js') === 1))
-	include 'mod/js.inc.php';
-elseif (strpos($path, $conf['site_path_img']) === 1)
-	include 'mod/img.inc.php';
+	include_once 'admin.inc.php';
+//elseif ((strpos($path, $conf['site_path_css']) === 1) || (strrpos($path, '.css') === 1))
+//	include_once 'mod/css.inc.php';
+//elseif (strpos($path, $conf['site_path_js']) === 1 || (strrpos($path, '.js') === 1))
+//	include_once 'mod/js.inc.php';
+//elseif (strpos($path, $conf['site_path_img']) === 1)
+//	include_once 'mod/img.inc.php';
 else
-	include 'content.inc.php';
+	include_once 'content.inc.php';

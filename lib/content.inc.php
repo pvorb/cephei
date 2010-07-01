@@ -7,28 +7,23 @@
  * @package org.genitis.cms
  */
 
-// Try to find item with $path that was in $_GET['q'].
-$res = $db->query('SELECT * FROM content_item WHERE path = "'.$path.'"');
+require_once 'db.inc.php';
+
+// Try to find something in index with source_path $path that was in $_GET['q'].
+$res = $db->query('SELECT `target_id`, `target_type` FROM `content_index` WHERE `source_path` = "'.$path.'";');
 $row = $res->fetch(PDO::FETCH_ASSOC);
-if ($row == false) {
-	// Try to find out if there have been older versions of this item at $path.
-	$res = $db->query('SELECT * FROM path_redirect WHERE source_path = "'.$path.'"');
-	$row = $res->fetch(PDO::FETCH_ASSOC);
-	if ($row != false) {
-		// Get the equivalent item.
-		$res = $db->query('SELECT path FROM content_item WHERE id = "'.$row['target_id'].'"');
+if ($row == FALSE)
+	redirect(404, ERROR_404, $path); // exit
+else
+	if ($row['target_type'] == 'static_redirection') {
+		// If there is a "static redirection" the new path to will be read and then
+		// the script will redirect to this path with status 301.
+		$res = $db->query('SELECT `path` FROM `content_item_static` WHERE `id` = "'.$row['target_id'].'";');
 		$row = $res->fetch(PDO::FETCH_ASSOC);
-		if ($row != false) {
-			// If it exists, redirect to the updated URL.
-			header('HTTP/1.1 301 Moved Permanently');
-			header('Location: '.$row['path']);
-			redirect(301, $row['path']);
-		} else {
-			// Else redirect to an 404 error and search for possible alternatives.
-			redirect(404, ERROR_404, $path);
-		}
-	} else {
-		// Redirect to an 404 error and search for possible alternatives.
-		redirect(404, ERROR_404, $path);
+		redirect(301, $row['path']); // exit
+	} elseif ($row['target_type'] == 'static_item') {
+		$res = $db->query('SELECT * FROM `content_item_static` WHERE `id` = "'.$row['target_id'].'";');
+		$row = $res->fetch(PDO::FETCH_ASSOC);
+
+		static_item($row); // Process data into output
 	}
-}

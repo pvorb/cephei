@@ -4,6 +4,7 @@
  *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
+ * @package org.genitis.cms
  */
 
 $start = microtime(TRUE);
@@ -27,8 +28,15 @@ if (!file_exists($config_file)) {
 }
 
 // Load configuration file
-require_once($config_file);
+require_once $config_file;
 unset($config_file);
+
+// Hide error messages in 'release' status
+function error_handler() {}
+if (CONF_STATUS == 'release') {
+	set_error_handler('error_handler', E_ALL);
+	set_exception_handler('error_handler');
+}
 
 // Get the requested path.
 $path = '/';
@@ -44,13 +52,11 @@ if (isset($_GET['s'])) {
 }
 
 // Load cache
-require_once(DIR_LIB.'cache.inc.php');
-// Load modules
-require_once(DIR_LIB.'modules.inc.php');
+require_once DIR_LIB.'cache.inc.php';
 // Initialize db connection
-require_once(DIR_LIB.'db.inc.php');
+require_once DIR_LIB.'db.inc.php';
 // Load data
-require_once(DIR_LIB.'data.inc.php');
+require_once DIR_LIB.'data.inc.php';
 
 // Show debug information.
 if (CONF_STATUS == 'debug') {

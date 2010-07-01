@@ -1,4 +1,6 @@
 lib/config.inc.php
+lib/vendor/smarty
+public/templates_c
 .buildpath
 .project
 .settings

@@ -25,8 +25,7 @@ function redirect($type, $location, $search = null) {
 		case 307: header('HTTP/1.1 307 Temporary Redirect'); break;
 		case 404: header('HTTP/1.1 404 Not Found'); break;
 	}
-	header('Location: '.$location
-			.(isset($args) ? '?s='.trim(strtr($search, array('/' => '+', '%20' => '+')), '+') :''));
+	header('Location: '.$location.(isset($args) ? '?s='.trim(strtr($search, array('/' => '+', '%20' => '+')), '+') :''));
 	die;
 }
 

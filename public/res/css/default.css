@@ -38,11 +38,11 @@
 
 @media print, handheld {
 	body { background: #fff; margin: .5em; }
-	#access, #intro,#related { display: none; }
-	#container, #index,#container .info,#about { margin: 0; padding: 0; }
+	#access, #intro, #related { display: none; }
+	#container, #index, #container .info, #about { margin: 0; padding: 0; }
 	#container, #about { text-align: justify; }
 	table, blockquote { text-align: left; }
-	#about, #container .info,#container .nav { border-top: 1px solid #ddd; margin: .5em 0 0; padding: .5em 0 0; }
+	#about, #container .info, #container .nav { border-top: 1px solid #ddd; margin: .5em 0 0; padding: .5em 0 0; }
 	a { color: #000; text-decoration: underline; }
 }
 
