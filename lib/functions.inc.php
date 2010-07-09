@@ -50,3 +50,38 @@ function redirect($type, $location, $search = null) {
 function sanitize_url($q) {
     return str_replace("\n", '', strip_tags($q));
 }
+
+/**
+ * Returns a relative path string to <code>DIR_PUB</code>.
+ *
+ * Usually this is used by many templates to get an relative path to the
+ * resources etc.
+ *
+ * @param int $level level of the document
+ * @return string with relative path to <code>DIR_PUB</code>
+ */
+function rel_path($level) {
+	$res = '';
+	for ($i = 0; $i < $level; $i++)
+		$res .= '../';
+	return $res;
+}
+
+/**
+ * Indents a given string and prints it.
+ *
+ * @param string $str string that shall be indented
+ * @param int $num number of indents
+ * @param string $char
+ *
+ * TODO Optimize
+ */
+function str_indent($str, $num = 1, $char = "\t") {
+	if ($num == 0)
+		return $str;
+
+	$ind = str_repeat($char, $num);
+	$str = explode("\n", $str);
+	foreach ($str as $line)
+		echo $ind.$line."\n";
+}

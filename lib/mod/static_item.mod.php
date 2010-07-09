@@ -84,10 +84,11 @@ EOT;
 	 * @throws ErrorException
 	 * @return query results as a <code>PDOStatement</code>
 	 */
-	static function get_entries($db, $cols = '*', $cond = NULL) {
-		if ($db == NULL)
-			throw new ErrorException('Parameter "$db" must specify a valid PDO connection', 0, 1, __FILE__, __LINE__);
-		elseif ($cols == NULL)
+	static function get_entries($cols = '*', $cond = NULL) {
+//		if ($db == NULL)
+//			throw new ErrorException('Parameter "$db" must specify a valid PDO connection', 0, 1, __FILE__, __LINE__);
+//		else
+		if ($cols == NULL)
 			throw new ErrorException('Parameter "$cols" must be either of type string or array of strings', 0, 1, __FILE__, __LINE__);
 		else if (is_array($cols))
 			$cols = implode(', ', $cols);
@@ -98,11 +99,13 @@ EOT;
 	/**
 	 * Get a specific entry as a whole.
 	 *
+	 * @param PDO $db database connection
 	 * @param string/int $id ID or 'path' of the entry
 	 * @throws ErrorException
 	 * @return query result as a <code>PDOStatement</code>
 	 */
 	static function get_entry($id) {
+		global $db;
 		if (is_string($id))
 			return $db->query('SELECT * FROM `content_item_static` WHERE `path` = "'.$id.'";');
 		else if (is_int($id))
@@ -114,10 +117,11 @@ EOT;
 	/**
 	 * Inserts a new entry.
 	 *
+	 * @param PDO $db database connection
 	 * @param array $assoc_array entry data
 	 * @throws ErrorException
 	 */
-	static function add($assoc_array) {
+	static function add($db, $assoc_array) {
 		if (!is_array($assoc_array))
 			throw new ErrorException('Parameter "$assoc_array" must be an associative array', 0, 1, __FILE__, __LINE__);
 
@@ -134,9 +138,56 @@ EOT;
 }
 
 class static_item_view extends view {
-	static $template = '../tpl/admin.tpl';
+	private $template;
+	private $_ = array();
+
+	function __construct($template = 'static_item') {
+		if (!is_string($template) || !$template)
+			throw new ErrorException('Parameter "$template" must be of type string and not empty', 0, 1, __FILE__, __LINE__);
+		$this->template = $template;
+	}
+
+	function assign_ref($key, &$value) {
+		$this->_[$key] = $value;
+	}
+
+	function assign($key, $value) {
+		$this->_[$key] = $value;
+	}
+
+	function loadTemplate() {
+		require_once DIR_TPL.$this->template.'.tpl.php';
+	}
 }
 
+/**
+ * Controller class of <code>static_item</code>.
+ *
+ * @author Paul Vorbach <p.vorbach@gmail.com>
+ */
 class static_item_controller extends controller {
 
+	static function display($request) {
+		$res = static_item_model::get_entry(intval($request));
+		$row = $res->fetch(PDO::FETCH_ASSOC);
+
+		$v = new static_item_view();
+		foreach ($row as $key => $value) {
+			switch ($key) {
+				case 'language':
+					$key = 'lang';
+					$value = substr($value, 0, 2);
+				default:
+					$v->assign_ref($key, $value);
+			}
+		}
+
+		$v->assign('years', '2007 - 2010');
+		$v->assign_ref('rel_path', rel_path($row['level']));
+		$v->assign('stylesheet_url', 'all');
+		$v->assign('l10n_search', 'Suche');
+		$v->assign('info', NULL);
+
+		$v->loadTemplate();
+	}
 }

@@ -22,8 +22,6 @@ else
 		$row = $res->fetch(PDO::FETCH_ASSOC);
 		redirect(301, $row['path']); // exit
 	} elseif ($row['target_type'] == 'static_item') {
-		$res = $db->query('SELECT * FROM `content_item_static` WHERE `id` = "'.$row['target_id'].'";');
-		$row = $res->fetch(PDO::FETCH_ASSOC);
-
-		static_item($row); // Process data into output
+		require_once DIR_MOD.'static_item.mod.php';
+		static_item_controller::display($row['target_id']);
 	}
