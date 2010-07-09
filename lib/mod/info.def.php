@@ -13,22 +13,11 @@
  * You may also define:
  *  - $url A link to the Webpage of the module
  */
-class mod {
-	static $name = 'Module Name';
-	static $author = 'Author\'s name';
-	static $email = 'author@example.com';
-	static $version = '0.1.0';
-	static $type = 'custom';
-}
 
-class model {
-
-}
-
-class view {
-
-}
-
-class controller {
-
+class info {
+	static $name;
+	static $author;
+	static $email;
+	static $version;
+	static $type;
 }

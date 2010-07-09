@@ -1,6 +1,6 @@
 <?php
 /**
- * This file catches the content.
+ * This file fetches the content.
  *
  * @author Paul Vorbach <p.vorbach@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php MIT License
@@ -22,6 +22,6 @@ else
 		$row = $res->fetch(PDO::FETCH_ASSOC);
 		redirect(301, $row['path']); // exit
 	} elseif ($row['target_type'] == 'static_item') {
-		require_once DIR_MOD.'static_item.mod.php';
-		static_item_controller::display($row['target_id']);
+		require_once DIR_MOD.'static_item/static_item.frontend.controller.php';
+		static_item_frontend_controller::display($row['target_id']);
 	}

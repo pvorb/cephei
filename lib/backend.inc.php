@@ -6,3 +6,7 @@
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @package org.genitis.cms
  */
+
+require_once 'db.inc.php';
+
+

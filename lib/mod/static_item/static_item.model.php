@@ -1,23 +1,8 @@
 <?php
-/**
- * Static item module.
- *
- * @author Paul Vorbach <p.vorbach@gmail.com>
- * @license http://opensource.org/licenses/mit-license.php MIT License
- * @package org.genitis.cms
- */
 
-require_once 'mod.def.php';
+require_once DIR_MOD.'model.def.php';
 
-class static_item extends mod {
-	static $name = 'Static Item Module';
-	static $author = 'Paul Vorbach';
-	static $email = 'p.vorbach@gmail.com';
-	static $version = '0.1.0';
-	static $type = 'core';
-}
-
-class static_item_model extends model {
+class static_item_model implements model {
 
 	/**
 	 * Creates a database table <em>content_item_static</em> for the models
@@ -26,7 +11,9 @@ class static_item_model extends model {
 	 * @param PDO $db database connection
 	 * @return <code>TRUE</code> on success
 	 */
-	static function install($db) {
+	static function install() {
+		global $db;
+
 		$statement = <<<EOT
 CREATE TABLE IF NOT EXISTS `content_item_static` (
   `id` int(32) NOT NULL AUTO_INCREMENT,
@@ -61,13 +48,23 @@ EOT;
 		return TRUE;
 	}
 
+	static function activate() {
+
+	}
+
+	static function deactivate() {
+
+	}
+
 	/**
 	 * Drops the database table <em>content_item_static</em>.
 	 *
 	 * @param PDO $db database connection
 	 * @return <code>TRUE</code> on success
 	 */
-	static function uninstall($db) {
+	static function uninstall() {
+		global $db;
+
 		$statement = <<<EOT
 DROP TABLE `content_item_static`;
 EOT;
@@ -121,7 +118,9 @@ EOT;
 	 * @param array $assoc_array entry data
 	 * @throws ErrorException
 	 */
-	static function add($db, $assoc_array) {
+	static function add_entry($assoc_array) {
+		global $db;
+
 		if (!is_array($assoc_array))
 			throw new ErrorException('Parameter "$assoc_array" must be an associative array', 0, 1, __FILE__, __LINE__);
 
@@ -135,59 +134,12 @@ EOT;
 		//return
 		$db->exec('INSERT INTO `content_item_static` ('.implode(', ', $keys).') VALUES ('.implode(', ', $values).');');
 	}
-}
 
-class static_item_view extends view {
-	private $template;
-	private $_ = array();
+	static function update_entry($assoc_array) {
 
-	function __construct($template = 'static_item') {
-		if (!is_string($template) || !$template)
-			throw new ErrorException('Parameter "$template" must be of type string and not empty', 0, 1, __FILE__, __LINE__);
-		$this->template = $template;
 	}
 
-	function assign_ref($key, &$value) {
-		$this->_[$key] = $value;
-	}
+	static function remove_entry($cond) {
 
-	function assign($key, $value) {
-		$this->_[$key] = $value;
-	}
-
-	function loadTemplate() {
-		require_once DIR_TPL.$this->template.'.tpl.php';
-	}
-}
-
-/**
- * Controller class of <code>static_item</code>.
- *
- * @author Paul Vorbach <p.vorbach@gmail.com>
- */
-class static_item_controller extends controller {
-
-	static function display($request) {
-		$res = static_item_model::get_entry(intval($request));
-		$row = $res->fetch(PDO::FETCH_ASSOC);
-
-		$v = new static_item_view();
-		foreach ($row as $key => $value) {
-			switch ($key) {
-				case 'language':
-					$key = 'lang';
-					$value = substr($value, 0, 2);
-				default:
-					$v->assign_ref($key, $value);
-			}
-		}
-
-		$v->assign('years', '2007 - 2010');
-		$v->assign_ref('rel_path', rel_path($row['level']));
-		$v->assign('stylesheet_url', 'all');
-		$v->assign('l10n_search', 'Suche');
-		$v->assign('info', NULL);
-
-		$v->loadTemplate();
 	}
 }
